@@ -1,0 +1,65 @@
+//reset
+*{
+   margin: 0; 
+   padding: 0;
+   box-sizing: border-box;
+ }
+
+html, body {
+   width: 100%;
+   height: 100%;
+}
+
+header, footer{ height: 10vh; }
+body{ background:#87CEFA; }
+
+h1{ font-family: 'Permanent Marker', cursive; }
+h2{ font-family: 'Lobster', cursive; }
+
+.hideBlur{ animation: anim 2s linear forwards; }
+@keyframes anim{
+  0%{ }
+  100%{ filter: blur(7px); opacity: 0; }
+}
+
+.showBlur{ animation: anim2 2s linear forwards; }
+@keyframes anim2{
+  0%{ filter: blur(7px); opacity: 0;}
+  100%{ filter: blur(0); opacity: 1; }
+}
+
+@media screen and (max-width: 320px) {
+  .mainContainer{
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    border: 1px solid #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-wrap: wrap;
+  }  
+
+  #info{
+    text-align: center;
+    font-weight: bold;
+    font-family: 'Courgette', cursive;
+  }
+
+  h1, h2{
+    width: 100%;
+    text-align: center;
+  }
+
+  h1{
+    font-size: 2.5em;
+    color: red;
+    -webkit-text-stroke: 2px #000;
+  }
+}
+
+
+
+
+ 
