@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
     //intro
     $.ajax({
-        url: 'https://szymekcendecki.github.io/Audaces-powerfull-next-generation/jsonFiles/heroCreator.json',
+        url: 'https://github.com/SzymekCendecki/piracki-rejs/blob/master/jsonFiles/texts.json',
         type: 'GET',
         dataType: 'json'
         }).done((data) => { $("#info").empty().append(data.texts[0].intro);
