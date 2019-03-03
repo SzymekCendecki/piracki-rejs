@@ -5,9 +5,9 @@ document.addEventListener("DOMContentLoaded", () => {
         type: 'GET',
         dataType: 'json'
         }).done((data) => { $("#info").empty().append(data.texts[0].intro);
-        }).fail(()=>{ console.log("coś nie bangla..."); });   		
-});
-
+        }).fail(()=>{ console.log("coś nie bangla..."); });   
+                
+        
     $("#title, #subTitle").hide();
     $("#info").on("click", ()=>{
         $("#info").addClass("hideBlur");
@@ -24,5 +24,4 @@ document.addEventListener("DOMContentLoaded", () => {
             $("#title, #subTitle").remove();
         }, 2050);
     });
-  
 });

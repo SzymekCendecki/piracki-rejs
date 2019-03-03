@@ -72,10 +72,40 @@ module.exports = __webpack_require__(1);
 
 /***/ }),
 /* 1 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-throw new Error("Module build failed: SyntaxError: C:/Users/Asus/Desktop/piracki rejs/js/workingFile.js: Unexpected token (28:0)\n\n  26 |     });\n  27 |   \n> 28 | });\n     | ^\n  29 | \n");
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    //intro
+    $.ajax({
+        url: 'https://github.com/SzymekCendecki/piracki-rejs/blob/master/jsonFiles/texts.json',
+        type: 'GET',
+        dataType: 'json'
+    }).done(function (data) {
+        $("#info").empty().append(data.texts[0].intro);
+    }).fail(function () {
+        console.log("coś nie bangla...");
+    });
+
+    $("#title, #subTitle").hide();
+    $("#info").on("click", function () {
+        $("#info").addClass("hideBlur");
+        setTimeout(function () {
+            $("#info").remove();
+            $("#title, #subTitle").show().addClass("showBlur");
+        }, 2500);
+    });
+
+    $("#title, #subTitle").on("click", function () {
+        $("#title, #subTitle").removeClass("showBlur");
+        $("#title, #subTitle").addClass("hideBlur");
+        setTimeout(function () {
+            $("#title, #subTitle").remove();
+        }, 2050);
+    });
+});
 
 /***/ })
 /******/ ]);
