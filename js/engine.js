@@ -80,16 +80,16 @@ module.exports = __webpack_require__(1);
 document.addEventListener("DOMContentLoaded", function () {
     //intro
     $.ajax({
-        url: 'https://github.com/SzymekCendecki/piracki-rejs/blob/master/jsonFiles/texts.json',
+        url: 'https://szymekcendecki.github.io/piracki-rejs/jsonFiles/texts.json',
         type: 'GET',
         dataType: 'json'
     }).done(function (data) {
-        $("#info").empty().append(data.texts[0].intro);
+        $("#info").empty().append(data.intro[0].info);
     }).fail(function () {
         console.log("coś nie bangla...");
     });
 
-    $("#title, #subTitle").hide();
+    $("#title, #subTitle, #warning").hide();
     $("#info").on("click", function () {
         $("#info").addClass("hideBlur");
         setTimeout(function () {
@@ -103,6 +103,17 @@ document.addEventListener("DOMContentLoaded", function () {
         $("#title, #subTitle").addClass("hideBlur");
         setTimeout(function () {
             $("#title, #subTitle").remove();
+            $("#warning").show();
+
+            $.ajax({
+                url: 'https://szymekcendecki.github.io/piracki-rejs/jsonFiles/texts.json',
+                type: 'GET',
+                dataType: 'json'
+            }).done(function (data) {
+                $("#warning").empty().append(data.intro[0].warning);
+            }).fail(function () {
+                console.log("coś nie bangla...");
+            });
         }, 2050);
     });
 });
