@@ -36,7 +36,9 @@ h2{ font-family: 'Lobster', cursive; }
   background: #00ff00;
   color: #0066ff;
   font-weight: bold;
+  font-family: 'Courgette', cursive;
   animation: anim 1s linear infinite;
+  -webkit-text-stroke: 1px #000;
 }
 
 @keyframes anim{
@@ -67,6 +69,14 @@ h2{ font-family: 'Lobster', cursive; }
     border-left-color: #000;
   }
 }
+.overflow{
+	overflow: auto;
+	height: 100vh;
+}
+
+.blackBorder{
+  border: 1px solid black;
+}
 
 @media screen and (max-width: 320px) {
   .mainContainer{
@@ -81,7 +91,7 @@ h2{ font-family: 'Lobster', cursive; }
     flex-wrap: wrap;
   }  
 
-  #info{
+  #info, #warning{
     text-align: center;
     font-weight: bold;
     font-family: 'Courgette', cursive;
@@ -97,6 +107,8 @@ h2{ font-family: 'Lobster', cursive; }
     color: red;
     -webkit-text-stroke: 2px #000;
   }
+
+
 }
 
 
