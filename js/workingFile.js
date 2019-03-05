@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }).done((data) => { $("#info").empty().append(data.intro[0].info);
         }).fail(()=>{ console.log("coś nie bangla..."); });                   
         
-    $("#title, #subTitle, #warning").hide();
+    $("#title, #subTitle, #warning, #task").hide();
     $("#info").on("click", ()=>{
         $("#info").addClass("hideBlur");
         setTimeout(()=>{
@@ -31,7 +31,18 @@ document.addEventListener("DOMContentLoaded", () => {
                 $("#warning").empty().append(data.intro[0].warning).addClass("showBlur");
                 $("#warning").on("click", ()=>{
                     $("#warning").removeClass("showBlur").addClass("hideBlur");
-                    setTimeout(()=>{ $("#warning").remove(); }, 2050);
+                    setTimeout(()=>{ 
+                        $("#warning").remove();
+                        $("#task").show().addCl;
+
+                        $.ajax({
+                            url: 'https://szymekcendecki.github.io/piracki-rejs/jsonFiles/texts.json',
+                            type: 'GET',
+                            dataType: 'json'
+                        }).done((data)=>{
+                            $("#task").empty().append(data.intro[0].task).addClass("showBlur");
+                        }).fail(()=>{ console.log("coś nie bangla..."); });
+                    }, 2050);
                 });
             }).fail(()=>{ console.log("coś nie bangla..."); });
         }, 2050);

@@ -89,7 +89,7 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log("coś nie bangla...");
     });
 
-    $("#title, #subTitle, #warning").hide();
+    $("#title, #subTitle, #warning, #task").hide();
     $("#info").on("click", function () {
         $("#info").addClass("hideBlur");
         setTimeout(function () {
@@ -115,6 +115,17 @@ document.addEventListener("DOMContentLoaded", function () {
                     $("#warning").removeClass("showBlur").addClass("hideBlur");
                     setTimeout(function () {
                         $("#warning").remove();
+                        $("#task").show().addCl;
+
+                        $.ajax({
+                            url: 'https://szymekcendecki.github.io/piracki-rejs/jsonFiles/texts.json',
+                            type: 'GET',
+                            dataType: 'json'
+                        }).done(function (data) {
+                            $("#task").empty().append(data.intro[0].task).addClass("showBlur");
+                        }).fail(function () {
+                            console.log("coś nie bangla...");
+                        });
                     }, 2050);
                 });
             }).fail(function () {
