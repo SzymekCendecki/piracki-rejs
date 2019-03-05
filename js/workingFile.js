@@ -27,7 +27,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 url: 'https://szymekcendecki.github.io/piracki-rejs/jsonFiles/texts.json',
                 type: 'GET',
                 dataType: 'json'
-            }).done((data)=>{ $("#warning").empty().append(data.intro[0].warning);
+            }).done((data)=>{ 
+                $("#warning").empty().append(data.intro[0].warning).addClass("showBlur");
+                $("#warning").on("click", ()=>{
+                    $("#warning").removeClass("showBlur").addClass("hideBlur");
+                    setTimeout(()=>{ $("#warning").remove(); }, 2050);
+                });
             }).fail(()=>{ console.log("coś nie bangla..."); });
         }, 2050);
     });

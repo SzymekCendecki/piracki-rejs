@@ -110,7 +110,13 @@ document.addEventListener("DOMContentLoaded", function () {
                 type: 'GET',
                 dataType: 'json'
             }).done(function (data) {
-                $("#warning").empty().append(data.intro[0].warning);
+                $("#warning").empty().append(data.intro[0].warning).addClass("showBlur");
+                $("#warning").on("click", function () {
+                    $("#warning").removeClass("showBlur").addClass("hideBlur");
+                    setTimeout(function () {
+                        $("#warning").remove();
+                    }, 2050);
+                });
             }).fail(function () {
                 console.log("coś nie bangla...");
             });
