@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     $("#warning").removeClass("showBlur").addClass("hideBlur");
                     setTimeout(()=>{ 
                         $("#warning").remove();
-                        $("#task").show().addCl;
+                        $("#task").show().addClass("showBlur");
 
                         $.ajax({
                             url: 'https://szymekcendecki.github.io/piracki-rejs/jsonFiles/texts.json',
@@ -41,8 +41,15 @@ document.addEventListener("DOMContentLoaded", () => {
                             dataType: 'json'
                         }).done((data)=>{
                             $("#task").empty().append(data.intro[0].task).addClass("showBlur");
+                            $(".start").on("click", ()=>{
+                                $("#task").removeClass("showBlur").addClass("hideBlur");
+                                setTimeout(()=>{
+                                    $("#task").remove();
+                                }, 2050);
+                            });
                         }).fail(()=>{ console.log("coś nie bangla..."); });
                     }, 2050);
+                
                 });
             }).fail(()=>{ console.log("coś nie bangla..."); });
         }, 2050);
