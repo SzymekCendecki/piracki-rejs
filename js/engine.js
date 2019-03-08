@@ -91,53 +91,39 @@ document.addEventListener("DOMContentLoaded", function () {
 
     $("#title, #subTitle, #warning, #task").hide();
     $("#info").on("click", function () {
-        $("#info").addClass("hideBlur");
-        setTimeout(function () {
-            $("#info").remove();
-            $("#title, #subTitle").show().addClass("showBlur");
-        }, 2500);
+        $("#info").remove();
+        $("#title, #subTitle").show();
     });
 
     $("#title, #subTitle").on("click", function () {
-        $("#title, #subTitle").removeClass("showBlur");
-        $("#title, #subTitle").addClass("hideBlur");
-        setTimeout(function () {
-            $("#title, #subTitle").remove();
-            $("#warning").show();
+        $("#title, #subTitle").remove();
+        $("#warning").show();
 
-            $.ajax({
-                url: 'https://szymekcendecki.github.io/piracki-rejs/jsonFiles/texts.json',
-                type: 'GET',
-                dataType: 'json'
-            }).done(function (data) {
-                $("#warning").empty().append(data.intro[0].warning).addClass("showBlur");
-                $("#warning").on("click", function () {
-                    $("#warning").removeClass("showBlur").addClass("hideBlur");
-                    setTimeout(function () {
-                        $("#warning").remove();
-                        $("#task").show().addClass("showBlur");
-
-                        $.ajax({
-                            url: 'https://szymekcendecki.github.io/piracki-rejs/jsonFiles/texts.json',
-                            type: 'GET',
-                            dataType: 'json'
-                        }).done(function (data) {
-                            $("#task").empty().append(data.intro[0].task).addClass("showBlur");
-                            $(".start").on("click", function () {
-                                $("#task").removeClass("showBlur").addClass("hideBlur");
-                                setTimeout(function () {
-                                    $("#task").remove();
-                                }, 2050);
-                            });
-                        }).fail(function () {
-                            console.log("coś nie bangla...");
-                        });
-                    }, 2050);
+        $.ajax({
+            url: 'https://szymekcendecki.github.io/piracki-rejs/jsonFiles/texts.json',
+            type: 'GET',
+            dataType: 'json'
+        }).done(function (data) {
+            $("#warning").empty().append(data.intro[0].warning);
+            $("#warning").on("click", function () {
+                $("#warning").remove();
+                $("#task").show();
+                $.ajax({
+                    url: 'https://szymekcendecki.github.io/piracki-rejs/jsonFiles/texts.json',
+                    type: 'GET',
+                    dataType: 'json'
+                }).done(function (data) {
+                    $("#task").empty().append(data.intro[0].task);
+                    $(".start").on("click", function () {
+                        $("#task").remove();
+                    });
+                }).fail(function () {
+                    console.log("coś nie bangla...");
                 });
-            }).fail(function () {
-                console.log("coś nie bangla...");
             });
-        }, 2050);
+        }).fail(function () {
+            console.log("coś nie bangla...");
+        });
     });
 });
 

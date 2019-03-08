@@ -16,18 +16,6 @@ body{ background: #87CEFA; }
 h1{ font-family: 'Permanent Marker', cursive; }
 h2{ font-family: 'Lobster', cursive; }
 
-.hideBlur{ animation: anim 2s linear forwards; }
-@keyframes anim{
-  0%{ filter: blur(0); opacity: 1; }
-  100%{ filter: blur(7px); opacity: 0; }
-}
-
-.showBlur{ animation: anim2 2s linear forwards; }
-@keyframes anim2{
-  0%{ filter: blur(7px); opacity: 0;}
-  100%{ filter: blur(0); opacity: 1; }
-}
-
 .dataBase{
   width: 60px;
   height: 60px;
