@@ -97,7 +97,7 @@ h2{ font-family: 'Lobster', cursive; }
     flex-wrap: wrap;
   }  
 
-  #info, #warning, #task{
+  #info, #warning, #task, #rects > p{
     text-align: center;
     font-weight: bold;
     font-family: 'Courgette', cursive;
@@ -112,6 +112,78 @@ h2{ font-family: 'Lobster', cursive; }
     font-size: 2.5em;
     color: red;
     -webkit-text-stroke: 2px #000;
+  }
+
+  #rects{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .one{
+    background: #e00707;
+    border: 2px solid black;
+    width: 200px;
+    height: 200px;
+    position: relative;
+    top: 55px;
+    left: 5px;
+    z-index: 1;
+    animation: rotateRight 5s infinite;
+  }
+      
+  .two{
+    background: #ffcc66;
+    border: 2px solid black;
+    width: 150px;
+    height: 150px;
+    position: relative;
+    top: -117.5px;
+    left: 82.5px;
+    z-index: 2;
+    animation: rotateLeft 5s infinite;
+  }
+  
+  @keyframes rotateLeft{
+    0%{transform: rotate(0deg);}
+    100%{ transform: rotate(-360deg); }
+  }
+  
+  .three{
+    background: #ade007;
+    border: 2px solid black;
+    width: 100px;
+    height:100px;
+    position: relative;
+    top: -112.5px;
+    left: -40px;
+    z-index: 3;
+    animation: rotateRight 5s infinite;
+  }
+  
+  @keyframes rotateRight{
+    0%{transform: rotate(0deg);}
+    100%{ transform: rotate(360deg); }
+  }
+  
+  .four{
+    background: #990099;
+    border: 2px solid black;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    position: relative;
+    top: -110px;
+    left: -115px;
+    z-index: 4;
+    animation: pulse 1s infinite;
+  }  
+  
+  @keyframes pulse{
+    0%{}
+    50%{ background: #ff66ff; }
+    100%{ background: #990099; }
   }
 }
 

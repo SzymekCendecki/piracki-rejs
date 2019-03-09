@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }).done((data) => { $("#info").empty().append(data.intro[0].info);
         }).fail(()=>{ console.log("coś nie bangla..."); });                   
         
-    $("#title, #subTitle, #warning, #task").hide();
+    $("#title, #subTitle, #warning, #task, #rects").hide();
     $("#info").on("click", ()=>{
         $("#info").remove();
         $("#title, #subTitle").show();
@@ -34,6 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     $("#task").empty().append(data.intro[0].task);
                     $(".start").on("click", ()=>{
                         $("#task").remove();
+                        $("#rects").show();
                     });
                }).fail(()=>{ console.log("coś nie bangla..."); });
             });
