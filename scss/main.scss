@@ -97,7 +97,7 @@ h2{ font-family: 'Lobster', cursive; }
     flex-wrap: wrap;
   }  
 
-  #info, #warning, #task, #rects > p{
+  #info, #warning, #task, #vehicleText, #vehicleText2{
     text-align: center;
     font-weight: bold;
     font-family: 'Courgette', cursive;
@@ -112,13 +112,6 @@ h2{ font-family: 'Lobster', cursive; }
     font-size: 2.5em;
     color: red;
     -webkit-text-stroke: 2px #000;
-  }
-
-  #rects{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
   }
 
   .one{
@@ -164,7 +157,7 @@ h2{ font-family: 'Lobster', cursive; }
   
   @keyframes rotateRight{
     0%{transform: rotate(0deg);}
-    100%{ transform: rotate(359deg); }
+    100%{ transform: rotate(360deg); }
   }
   
   .four{
