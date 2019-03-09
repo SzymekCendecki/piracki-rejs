@@ -89,7 +89,7 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log("coś nie bangla...");
     });
 
-    $("#title, #subTitle, #warning, #task, .one, .two, .three, .four, #vehicleText, #vehicleText2").hide();
+    $("#title, #subTitle, #warning, #task, #rects").hide();
     $("#info").on("click", function () {
         $("#info").remove();
         $("#title, #subTitle").show();
@@ -116,7 +116,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     $("#task").empty().append(data.intro[0].task);
                     $(".start").on("click", function () {
                         $("#task").remove();
-                        $(".one, .two, .three, .four, #vehicleText, #vehicleText2").show();
+                        $("#rects").show();
                     });
                 }).fail(function () {
                     console.log("coś nie bangla...");
