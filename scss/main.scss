@@ -84,12 +84,10 @@ h2{ font-family: 'Lobster', cursive; }
 .bold{ font-weight: bold; }
 .italic{ font-style: italic; }
 
-@media screen and (min-width: 320px) {
   .mainContainer{
     width: 100%;
     height: 100%;
     margin: 0 auto;
-    border: 1px solid #000;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -147,7 +145,7 @@ h2{ font-family: 'Lobster', cursive; }
   
   @keyframes rotateLeft{
     0%{transform: rotate(0deg);}
-    100%{ transform: rotate(-360deg); }
+    100%{ transform: rotate(-359deg); }
   }
   
   .three{
@@ -164,7 +162,7 @@ h2{ font-family: 'Lobster', cursive; }
   
   @keyframes rotateRight{
     0%{transform: rotate(0deg);}
-    100%{ transform: rotate(360deg); }
+    100%{ transform: rotate(359deg); }
   }
   
   .four{
@@ -185,7 +183,7 @@ h2{ font-family: 'Lobster', cursive; }
     50%{ background: #ff66ff; }
     100%{ background: #990099; }
   }
-}
+
 
 
 
