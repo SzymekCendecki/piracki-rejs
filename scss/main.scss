@@ -119,6 +119,7 @@ h2{ font-family: 'Lobster', cursive; }
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    position: absolute;
   }
 
   .one{
@@ -130,7 +131,7 @@ h2{ font-family: 'Lobster', cursive; }
     top: 55px;
     left: 5px;
     z-index: 1;
-    animation: rotateRight 5s infinite;
+   animation: rotateRight 5s infinite;
   }
       
   .two{
@@ -142,7 +143,7 @@ h2{ font-family: 'Lobster', cursive; }
     top: -117.5px;
     left: 82.5px;
     z-index: 2;
-    animation: rotateLeft 5s infinite;
+   animation: rotateLeft 5s infinite;
   }
   
   @keyframes rotateLeft{
@@ -177,7 +178,7 @@ h2{ font-family: 'Lobster', cursive; }
     top: -110px;
     left: -115px;
     z-index: 4;
-    animation: pulse 1s infinite;
+   animation: pulse 1s infinite;
   }  
   
   @keyframes pulse{
