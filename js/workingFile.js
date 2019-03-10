@@ -1,5 +1,8 @@
+import { equip } from "./game.js";
+
 document.addEventListener("DOMContentLoaded", () => {
-    //intro
+
+   //intro
     $.ajax({
         url: 'https://szymekcendecki.github.io/piracki-rejs/jsonFiles/texts.json',
         type: 'GET',
@@ -38,6 +41,17 @@ document.addEventListener("DOMContentLoaded", () => {
                     });
                }).fail(()=>{ console.log("coś nie bangla..."); });
             });
+        }).fail(()=>{ console.log("coś nie bangla..."); });
+    });
+
+    $(".one").on("click", ()=>{
+        $("#vehicleActive").remove();
+        $.ajax({
+            url: 'https://szymekcendecki.github.io/piracki-rejs/jsonFiles/texts.json',
+            type: 'GET',
+            dataType: 'json'
+        }).done((data)=>{
+            $("#task").empty().append(data.intro[0].rulez).append(data.intro[0].equip);
         }).fail(()=>{ console.log("coś nie bangla..."); });
     });
 });
