@@ -145,7 +145,42 @@ h2{ font-family: 'Lobster', cursive; }
     50%{ background: #00ff00; }
     100%{ background: #009900; }
   }
-    
+
+  .btns{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  #startGame, #infoGame{
+    width: 75px;
+    height: 32.5px;
+    border: 2px solid black;
+    border-radius: 5px;
+    margin: 2% 0 0 0;
+    background: #009900;
+    animation: one 1s linear infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-family: 'Courgette', cursive;
+  }
+
+  #infoGame{
+    background: #cc6600;
+    animation: infoGame 1s linear infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  @keyframes infoGame{
+    0%{ }
+    50%{ background: #ffcc00; }
+    100%{ background: #cc6600; }
+  }
 }
 
 
