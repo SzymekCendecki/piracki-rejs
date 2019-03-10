@@ -77,7 +77,7 @@ module.exports = __webpack_require__(1);
 "use strict";
 
 
-var _game = __webpack_require__(2);
+//import { equip } from "./game.js";
 
 document.addEventListener("DOMContentLoaded", function () {
 
@@ -92,7 +92,7 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log("coś nie bangla...");
     });
 
-    $("#title, #subTitle, #warning, #task, #vehicleActive").hide();
+    $("#title, #subTitle, #warning, #task, #vehicleActive, #rulez, #equip").hide();
     $("#info").on("click", function () {
         $("#info").remove();
         $("#title, #subTitle").show();
@@ -137,28 +137,12 @@ document.addEventListener("DOMContentLoaded", function () {
             type: 'GET',
             dataType: 'json'
         }).done(function (data) {
-            $("#task").empty().append(data.intro[0].rulez).append(data.intro[0].equip);
+            $("#rulez").show().empty().append(data.intro[0].rulez); //.append(data.intro[0].equip);
         }).fail(function () {
             console.log("coś nie bangla...");
         });
     });
 });
-
-/***/ }),
-/* 2 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.equip = equip;
-function equip() {
-
-    console.log("działa");
-}
 
 /***/ })
 /******/ ]);

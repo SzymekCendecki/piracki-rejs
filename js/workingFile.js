@@ -1,4 +1,4 @@
-import { equip } from "./game.js";
+//import { equip } from "./game.js";
 
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }).done((data) => { $("#info").empty().append(data.intro[0].info);
         }).fail(()=>{ console.log("coś nie bangla..."); });                   
         
-    $("#title, #subTitle, #warning, #task, #vehicleActive").hide();
+    $("#title, #subTitle, #warning, #task, #vehicleActive, #rulez, #equip").hide();
     $("#info").on("click", ()=>{
         $("#info").remove();
         $("#title, #subTitle").show();
@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
             type: 'GET',
             dataType: 'json'
         }).done((data)=>{
-            $("#task").empty().append(data.intro[0].rulez).append(data.intro[0].equip);
+            $("#rulez").show().empty().append(data.intro[0].rulez);//.append(data.intro[0].equip);
         }).fail(()=>{ console.log("coś nie bangla..."); });
     });
 });
