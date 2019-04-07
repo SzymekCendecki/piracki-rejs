@@ -83,6 +83,8 @@ h2{ font-family: 'Lobster', cursive; }
 .blackBorder{ border: 2px solid black; }
 .bold{ font-weight: bold; }
 .italic{ font-style: italic; }
+.letterSpacing{ letter-spacing: 3px; }
+.width100p{ width: 100%; }
 
 @media screen and (min-width: 320px) {
   .mainContainer{
@@ -97,7 +99,7 @@ h2{ font-family: 'Lobster', cursive; }
     flex-wrap: wrap;
   }  
 
-  #info, #warning, #task, #vehicleActive, #rulez, #equips{
+  #info, #warning, #task, #vehicleActive, #rulez, #equip, #start, #dataBase{
     text-align: center;
     font-weight: bold;
     font-family: 'Courgette', cursive;
@@ -149,7 +151,7 @@ h2{ font-family: 'Lobster', cursive; }
   .btns{
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
   }
 

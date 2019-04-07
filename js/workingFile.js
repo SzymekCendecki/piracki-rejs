@@ -1,16 +1,15 @@
 //import { equip } from "./game.js";
 
 document.addEventListener("DOMContentLoaded", () => {
-
    //intro
     $.ajax({
         url: 'https://szymekcendecki.github.io/piracki-rejs/jsonFiles/texts.json',
         type: 'GET',
         dataType: 'json'
         }).done((data) => { $("#info").empty().append(data.intro[0].info);
-        }).fail(()=>{ console.log("coś nie bangla..."); });                   
-        
-    $("#title, #subTitle, #warning, #task, #vehicleActive, #rulez, #equip").hide();
+        }).fail(()=>{ console.log("coś nie bangla..."); });          
+ 
+    $("#title, #subTitle, #warning, #task, #vehicleActive, #rulez, #equip, #page1").hide();
     $("#info").on("click", ()=>{
         $("#info").remove();
         $("#title, #subTitle").show();
@@ -51,7 +50,41 @@ document.addEventListener("DOMContentLoaded", () => {
             type: 'GET',
             dataType: 'json'
         }).done((data)=>{
-            $("#rulez").show().empty().append(data.intro[0].rulez);//.append(data.intro[0].equip);
+            $("#rulez").show().empty().append(data.intro[0].rulez);
+            $("#equip").addClass("one").on("click", ()=>{
+                $("#rulez").remove();
+                $("#equip").show();
+                $.ajax({
+                    url: 'https://szymekcendecki.github.io/piracki-rejs/jsonFiles/texts.json',
+                    type: 'GET',
+                    dataType: 'json'
+                }).done((data)=>{
+                    $("#equip").append(data.intro[0].equip);
+                    $("#dataBase").on("click", ()=>{
+                        $.ajax({
+                            url: 'https://szymekcendecki.github.io/piracki-rejs/jsonFiles/texts.json',
+                            type: 'GET',
+                            dataType: 'json'
+                        }).done((data)=>{
+                            $("#dataBaseText").empty().append(data.dataBank[0].info);
+                            $("#dataBase").prop("display", true);
+                        }).fail(()=>{ console.log("coś nie bangla..."); });
+                    });
+
+                    $("#start").on("click", ()=>{
+                        $.ajax({
+                            url: 'https://szymekcendecki.github.io/piracki-rejs/jsonFiles/texts.json',
+                            type: 'GET',
+                            dataType: 'json'
+                        }).done((data)=>{
+                            $("#equip").remove();
+                           $("#page1").show().append(data.game[0].page1);
+                        }).fail(()=>{ console.log("coś nie bangla..."); });
+                    });
+            
+                }).fail(()=>{ console.log("coś nie bangla..."); });
+            });
         }).fail(()=>{ console.log("coś nie bangla..."); });
     });
+
 });
