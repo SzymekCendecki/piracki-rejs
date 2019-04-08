@@ -91,7 +91,7 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log("coś nie bangla...");
     });
 
-    $("#title, #subTitle, #warning, #task, #vehicleActive, #rulez, #equip, #page1").hide();
+    $("#title, #subTitle, #warning, #task, #vehicleActive, #rulez, #equip, #page1, #page8").hide();
     $("#info").on("click", function () {
         $("#info").remove();
         $("#title, #subTitle").show();
@@ -167,6 +167,11 @@ document.addEventListener("DOMContentLoaded", function () {
                         }).done(function (data) {
                             $("#equip").remove();
                             $("#page1").show().append(data.game[0].page1);
+                            $("#page1 > button").on("click", function () {
+                                $("#page1").hide();
+                                $("#page8").show();
+                                //.append(data.game[0].page8);
+                            });
                         }).fail(function () {
                             console.log("coś nie bangla...");
                         });

@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }).done((data) => { $("#info").empty().append(data.intro[0].info);
         }).fail(()=>{ console.log("coś nie bangla..."); });          
  
-    $("#title, #subTitle, #warning, #task, #vehicleActive, #rulez, #equip, #page1").hide();
+    $("#title, #subTitle, #warning, #task, #vehicleActive, #rulez, #equip, #page1, #page8").hide();
     $("#info").on("click", ()=>{
         $("#info").remove();
         $("#title, #subTitle").show();
@@ -78,7 +78,12 @@ document.addEventListener("DOMContentLoaded", () => {
                             dataType: 'json'
                         }).done((data)=>{
                             $("#equip").remove();
-                           $("#page1").show().append(data.game[0].page1);
+                            $("#page1").show().append(data.game[0].page1);
+                            $("#page1 > button").on("click", ()=>{
+                                $("#page1").hide();
+                                $("#page8").show();
+                                //.append(data.game[0].page8);
+                            });
                         }).fail(()=>{ console.log("coś nie bangla..."); });
                     });
             
@@ -86,5 +91,7 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         }).fail(()=>{ console.log("coś nie bangla..."); });
     });
+
+  
 
 });
