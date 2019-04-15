@@ -78,20 +78,67 @@ module.exports = __webpack_require__(1);
 
 
 //import { equip } from "./game.js";
+var intro = __webpack_require__(3);
+var info = __webpack_require__(4);
+var rulez = __webpack_require__(6);
+var start = __webpack_require__(5);
 
 document.addEventListener("DOMContentLoaded", function () {
-    //intro
-    $.ajax({
-        url: 'https://szymekcendecki.github.io/piracki-rejs/jsonFiles/texts.json',
-        type: 'GET',
-        dataType: 'json'
-    }).done(function (data) {
-        $("#info").empty().append(data.intro[0].info);
-    }).fail(function () {
-        console.log("coś nie bangla...");
-    });
 
-    $("#title, #subTitle, #warning, #task, #vehicleActive, #rulez, #equip, #page1, #page8").hide();
+   $("#title, #subTitle, #warning, #task, #vehicleActive, #rulez, #equip, #page1, #page8").hide();
+
+   intro.intro();
+   info.info();
+   rulez.rulez();
+   start.start();
+});
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+module.exports.page8 = function () {
+
+   $("#page8 > button").first().on("click", function () {
+      console.log("buntownicy");
+   });
+   $("#page8 > button").last().on("click", function () {
+      console.log("kapitan");
+   });
+};
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+module.exports.intro = function () {
+  //intro
+  $.ajax({
+    url: 'https://szymekcendecki.github.io/piracki-rejs/jsonFiles/texts.json',
+    type: 'GET',
+    dataType: 'json'
+  }).done(function (data) {
+    $("#info").empty().append(data.intro[0].info);
+  }).fail(function () {
+    console.log("coś nie bangla...");
+  });
+};
+
+/***/ }),
+/* 4 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+module.exports.info = function () {
+    //info
     $("#info").on("click", function () {
         $("#info").remove();
         $("#title, #subTitle").show();
@@ -128,7 +175,47 @@ document.addEventListener("DOMContentLoaded", function () {
             console.log("coś nie bangla...");
         });
     });
+};
 
+/***/ }),
+/* 5 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var page8 = __webpack_require__(2);
+
+module.exports.start = function () {
+    $("#start").on("click", function () {
+        $.ajax({
+            url: 'https://szymekcendecki.github.io/piracki-rejs/jsonFiles/texts.json',
+            type: 'GET',
+            dataType: 'json'
+        }).done(function (data) {
+            $("#equip").remove();
+            $("#page1").show().append(data.game[0].page1);
+            $("#page1 > button").on("click", function () {
+                $("#page1").hide();
+                $("#page8").show().append(data.game[0].page8);
+                page8.page8();
+            });
+        }).fail(function () {
+            console.log("coś nie bangla...");
+        });
+    });
+};
+
+/***/ }),
+/* 6 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var start = __webpack_require__(5);
+
+module.exports.rulez = function () {
     $(".one").on("click", function () {
         $("#vehicleActive").remove();
         $.ajax({
@@ -159,23 +246,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         });
                     });
 
-                    $("#start").on("click", function () {
-                        $.ajax({
-                            url: 'https://szymekcendecki.github.io/piracki-rejs/jsonFiles/texts.json',
-                            type: 'GET',
-                            dataType: 'json'
-                        }).done(function (data) {
-                            $("#equip").remove();
-                            $("#page1").show().append(data.game[0].page1);
-                            $("#page1 > button").on("click", function () {
-                                $("#page1").hide();
-                                $("#page8").show();
-                                //.append(data.game[0].page8);
-                            });
-                        }).fail(function () {
-                            console.log("coś nie bangla...");
-                        });
-                    });
+                    start.start();
                 }).fail(function () {
                     console.log("coś nie bangla...");
                 });
@@ -184,7 +255,7 @@ document.addEventListener("DOMContentLoaded", function () {
             console.log("coś nie bangla...");
         });
     });
-});
+};
 
 /***/ })
 /******/ ]);
