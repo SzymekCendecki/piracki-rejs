@@ -60,38 +60,44 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = 1);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(1);
+"use strict";
 
+
+var page8 = __webpack_require__(6);
+
+module.exports.start = function () {
+    $("#start").on("click", function () {
+        $.ajax({
+            url: 'https://szymekcendecki.github.io/piracki-rejs/jsonFiles/texts.json',
+            type: 'GET',
+            dataType: 'json'
+        }).done(function (data) {
+            $("#equip").remove();
+            $("#page1").show().append(data.game[0].page1);
+            $("#page1 > button").on("click", function () {
+                $("#page1").hide();
+                $("#page8").show().append(data.game[0].page8);
+                page8.page8();
+            });
+        }).fail(function () {
+            console.log("coś nie bangla...");
+        });
+    });
+};
 
 /***/ }),
 /* 1 */
 /***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
+module.exports = __webpack_require__(2);
 
-
-//import { equip } from "./game.js";
-var intro = __webpack_require__(3);
-var info = __webpack_require__(4);
-var rulez = __webpack_require__(6);
-var start = __webpack_require__(5);
-
-document.addEventListener("DOMContentLoaded", function () {
-
-   $("#title, #subTitle, #warning, #task, #vehicleActive, #rulez, #equip, #page1, #page8").hide();
-
-   intro.intro();
-   info.info();
-   rulez.rulez();
-   start.start();
-});
 
 /***/ }),
 /* 2 */
@@ -100,15 +106,22 @@ document.addEventListener("DOMContentLoaded", function () {
 "use strict";
 
 
-module.exports.page8 = function () {
+//import { equip } from "./game.js";
+var intro = __webpack_require__(3);
+var info = __webpack_require__(4);
+var rulez = __webpack_require__(5);
+var start = __webpack_require__(0);
 
-   $("#page8 > button").first().on("click", function () {
-      console.log("buntownicy");
-   });
-   $("#page8 > button").last().on("click", function () {
-      console.log("kapitan");
-   });
-};
+document.addEventListener("DOMContentLoaded", function () {
+
+  $("#title, #subTitle, #warning, #task, #vehicleActive, #rulez, #equip, #page1, #page8").hide();
+  $("#toPage1, #toPage4, #toPage7, #toPage8, #toPage11, #toPage12, #toPage14, #toPage15, #toPage20, #toPage23, #toPage24, #toPage28, #toPage32, #toPage33, #toPage36, #toPage40, #toPage42, #toPage44,#toPage47,#toPage50, #toPage52, #toPage54, #toPage57, #toPage63, #toPage66, #toPage70, #toPage72, #toPage77, #toPage78, #toPage80, #toPage82, #toPage87, #toPage90, #toPage91, #toPage96, #toPage100, #toPage103, #toPage106, #toPage107, #toPage110, #toPage112, #toPage115, #toPage116, #toPage121, #toPage123, #taskDone").hide();
+
+  intro.intro();
+  info.info();
+  rulez.rulez();
+  start.start();
+});
 
 /***/ }),
 /* 3 */
@@ -184,36 +197,7 @@ module.exports.info = function () {
 "use strict";
 
 
-var page8 = __webpack_require__(2);
-
-module.exports.start = function () {
-    $("#start").on("click", function () {
-        $.ajax({
-            url: 'https://szymekcendecki.github.io/piracki-rejs/jsonFiles/texts.json',
-            type: 'GET',
-            dataType: 'json'
-        }).done(function (data) {
-            $("#equip").remove();
-            $("#page1").show().append(data.game[0].page1);
-            $("#page1 > button").on("click", function () {
-                $("#page1").hide();
-                $("#page8").show().append(data.game[0].page8);
-                page8.page8();
-            });
-        }).fail(function () {
-            console.log("coś nie bangla...");
-        });
-    });
-};
-
-/***/ }),
-/* 6 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var start = __webpack_require__(5);
+var start = __webpack_require__(0);
 
 module.exports.rulez = function () {
     $(".one").on("click", function () {
@@ -255,6 +239,23 @@ module.exports.rulez = function () {
             console.log("coś nie bangla...");
         });
     });
+};
+
+/***/ }),
+/* 6 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+module.exports.page8 = function () {
+
+   $("#page8 > button").first().on("click", function () {
+      console.log("buntownicy");
+   });
+   $("#page8 > button").last().on("click", function () {
+      console.log("kapitan");
+   });
 };
 
 /***/ })
