@@ -84,6 +84,7 @@ module.exports.start = function () {
             $("#page1 > button").on("click", function () {
                 $("#page1").hide();
                 $("#page8").show().append(data.game[0].page8);
+                $("#toPage7, #toPage12").show();
                 page8.page8();
             });
         }).fail(function () {
@@ -250,12 +251,13 @@ module.exports.rulez = function () {
 
 module.exports.page8 = function () {
 
-   $("#page8 > button").first().on("click", function () {
-      console.log("buntownicy");
-   });
-   $("#page8 > button").last().on("click", function () {
-      console.log("kapitan");
-   });
+  $("#toPage7").on("click", function () {
+    console.log("buntownicy");
+  });
+
+  $("#toPage12").on("click", function () {
+    console.log("kapitan");
+  });
 };
 
 /***/ })

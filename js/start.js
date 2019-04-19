@@ -12,6 +12,7 @@ module.exports.start = function(){
             $("#page1 > button").on("click", ()=>{
                 $("#page1").hide();
                 $("#page8").show().append(data.game[0].page8);
+                $("#toPage7, #toPage12").show();
                 page8.page8();
             });
 
