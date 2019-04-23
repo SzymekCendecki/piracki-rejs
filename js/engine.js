@@ -81,7 +81,11 @@ module.exports.start = function () {
         }).done(function (data) {
             $("#equip").remove();
             $("#page1").show().append(data.game[0].page1);
-            $("#page1 > button").on("click", function () {
+            $("#btns > button").hide();
+            $("#toPage8").show();
+
+            $("#toPage8").on("click", function () {
+                $("#btns > button").hide();
                 $("#page1").hide();
                 $("#page8").show().append(data.game[0].page8);
                 $("#toPage7, #toPage12").show();

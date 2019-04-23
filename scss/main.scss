@@ -58,7 +58,7 @@ h2{ font-family: 'Lobster', cursive; }
 }
 .overflow{
 	overflow: auto;
-	height: 100vh;
+	height: 85vh;
 }
 
 .start{
@@ -85,6 +85,8 @@ h2{ font-family: 'Lobster', cursive; }
 .italic{ font-style: italic; }
 .letterSpacing{ letter-spacing: 3px; }
 .width100p{ width: 100%; }
+.font{  font-family: 'Courgette', cursive; font-weight: bold; }
+.alwaysTop{ z-index: 5; }
 
 #btns{
   width: 100%;
@@ -98,7 +100,6 @@ h2{ font-family: 'Lobster', cursive; }
     width: 100%;
     height: 100%;
     margin: 0 auto;
-    border: 1px solid #000;
     display: flex;
     justify-content: center;
     align-items: center;

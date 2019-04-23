@@ -9,15 +9,16 @@ module.exports.start = function(){
         }).done((data)=>{
             $("#equip").remove();
             $("#page1").show().append(data.game[0].page1);
-            $("#page1 > button").on("click", ()=>{
+            $("#btns > button").hide();
+            $("#toPage8").show();
+
+            $("#toPage8").on("click", ()=>{
+                $("#btns > button").hide();
                 $("#page1").hide();
                 $("#page8").show().append(data.game[0].page8);
                 $("#toPage7, #toPage12").show();
                 page8.page8();
-            });
-
-      
-    
+            })
         }).fail(()=>{ console.log("coś nie bangla..."); });
      
     });
