@@ -119,7 +119,7 @@ var start = __webpack_require__(0);
 
 document.addEventListener("DOMContentLoaded", function () {
 
-  $("#title, #subTitle, #warning, #task, #vehicleActive, #rulez, #equip, #page1, #page8").hide();
+  $("#title, #subTitle, #warning, #task, #vehicleActive, #rulez, #equip, #page1, #page7, #page8").hide();
   $("#toPage1, #toPage4, #toPage7, #toPage8, #toPage11, #toPage12, #toPage14, #toPage15, #toPage20, #toPage23, #toPage24, #toPage28, #toPage32, #toPage33, #toPage36, #toPage40, #toPage42, #toPage44,#toPage47,#toPage50, #toPage52, #toPage54, #toPage57, #toPage63, #toPage66, #toPage70, #toPage72, #toPage77, #toPage78, #toPage80, #toPage82, #toPage87, #toPage90, #toPage91, #toPage96, #toPage100, #toPage103, #toPage106, #toPage107, #toPage110, #toPage112, #toPage115, #toPage116, #toPage121, #toPage123, #taskDone").hide();
 
   intro.intro();
@@ -253,15 +253,61 @@ module.exports.rulez = function () {
 "use strict";
 
 
+var page7 = __webpack_require__(7);
 module.exports.page8 = function () {
 
   $("#toPage7").on("click", function () {
-    console.log("buntownicy");
+    page7.page7();
   });
 
   $("#toPage12").on("click", function () {
     console.log("kapitan");
   });
+};
+
+/***/ }),
+/* 7 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var page1 = __webpack_require__(8);
+module.exports.page7 = function () {
+
+   $.ajax({
+      url: 'https://szymekcendecki.github.io/piracki-rejs/jsonFiles/texts.json',
+      type: 'GET',
+      dataType: 'json'
+   }).done(function (data) {
+      $("#page8").hide();
+      $("#page7").show().append(data.game[0].page7);
+      $("#btns > button").hide();
+      $("#toPage1").show();
+   }).fail(function () {
+      console.log("coś nie bangla...");
+   });
+
+   page1.page1();
+};
+
+/***/ }),
+/* 8 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var page8 = __webpack_require__(6);
+module.exports.page1 = function () {
+
+   $("#toPage1").on("click", function () {
+      $("#btns > button").hide();
+      $("#page7").hide();
+      $("#page1").show();
+      $("#toPage8").show();
+      page8.page8();
+   });
 };
 
 /***/ })
