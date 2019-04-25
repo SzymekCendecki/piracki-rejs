@@ -6,7 +6,7 @@ module.exports.page7 = function(){
       type: 'GET',
       dataType: 'json'
   }).done((data)=>{
-      $("#page8").hide();
+      $("#pages > p").hide();
       $("#page7").show().append(data.game[0].page7);
       $("#btns > button").hide();
       $("#toPage1").show();
