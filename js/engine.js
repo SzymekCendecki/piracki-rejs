@@ -108,6 +108,7 @@ module.exports.start = function () {
 
 
 var page7 = __webpack_require__(7);
+var page12 = __webpack_require__(9);
 module.exports.page8 = function () {
 
   $("#toPage7").on("click", function () {
@@ -115,7 +116,7 @@ module.exports.page8 = function () {
   });
 
   $("#toPage12").on("click", function () {
-    console.log("kapitan");
+    page12.page12();
   });
 };
 
@@ -141,7 +142,7 @@ var start = __webpack_require__(0);
 
 document.addEventListener("DOMContentLoaded", function () {
 
-  $("#title, #subTitle, #warning, #task, #vehicleActive, #rulez, #equip, #page1, #page7, #page8").hide();
+  $("#title, #subTitle, #warning, #task, #vehicleActive, #rulez, #equip, #page1, #page7, #page8, #page11, #page12, #page14, #page15, #page20, #page23, #page24, #page28, #page32, #page33, #page36, #page40, #page42, #page44, #page47, #page50, #page52, #page54, #page57, #page63, #page66, #page70, #page72, #page77, #page78, #page80, #page82, #page87, #page90, #page91, #page96, #page100, #page103, #page106,  #page107, #page110,#page112, #page115, #page116, #page121, #page123").hide();
   $("#toPage1, #toPage4, #toPage7, #toPage8, #toPage11, #toPage12, #toPage14, #toPage15, #toPage20, #toPage23, #toPage24, #toPage28, #toPage32, #toPage33, #toPage36, #toPage40, #toPage42, #toPage44,#toPage47,#toPage50, #toPage52, #toPage54, #toPage57, #toPage63, #toPage66, #toPage70, #toPage72, #toPage77, #toPage78, #toPage80, #toPage82, #toPage87, #toPage90, #toPage91, #toPage96, #toPage100, #toPage103, #toPage106, #toPage107, #toPage110, #toPage112, #toPage115, #toPage116, #toPage121, #toPage123, #taskDone").hide();
 
   intro.intro();
@@ -309,6 +310,159 @@ module.exports.page1 = function () {
       $("#page1").show();
       $("#toPage8").show();
       page8.page8();
+   });
+};
+
+/***/ }),
+/* 9 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var page11 = __webpack_require__(10);
+module.exports.page12 = function () {
+   $("#toPage12").on("click", function () {
+      $("#pages > p").hide();
+      $("#btns > button").hide();
+      $("#page12").show();
+      $("#toPage11").show();
+      page11.page11();
+   });
+};
+
+/***/ }),
+/* 10 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var page20 = __webpack_require__(11);
+module.exports.page11 = function () {
+   $("#toPage11").on("click", function () {
+      $("#pages > p").hide();
+      $("#btns > button").hide();
+      $("#page11").show();
+      $("#toPage20").show();
+      page20.page20();
+   });
+};
+
+/***/ }),
+/* 11 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var page4 = __webpack_require__(13);
+var page15 = __webpack_require__(12);
+module.exports.page20 = function () {
+
+   $("#toPage20").on("click", function () {
+      $("#pages > p").hide();
+      $("#btns > button").hide();
+      $("#page20").show();
+      $("#toPage4, #toPage15").show();
+      page4.page4();
+      page15.page15();
+   });
+};
+
+/***/ }),
+/* 12 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var page33 = __webpack_require__(14);
+var page24 = __webpack_require__(15);
+module.exports.page15 = function () {
+
+   $("#toPage15").on("click", function () {
+      $("#pages > p").hide();
+      $("#btns > button").hide();
+      $("#page15").show();
+      $("#toPage33, #toPage24").show();
+      page33.page33();
+      page24.page24();
+   });
+};
+
+/***/ }),
+/* 13 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var page14 = __webpack_require__(1);
+module.exports.page4 = function () {
+   $("#toPage4").on("click", function () {
+      $("#pages > p").hide();
+      $("#btns > button").hide();
+      $("#page4").show();
+      $("#toPage14").show();
+      page14.page14();
+   });
+};
+
+/***/ }),
+/* 14 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var page20 = __webpack_require__(11);
+module.exports.page33 = function () {
+   $("#toPage33").on("click", function () {
+      $("#pages > p").hide();
+      $("#btns > button").hide();
+      $("#page33").show();
+      $("#toPage20").show();
+      page20.page20();
+   });
+};
+
+/***/ }),
+/* 15 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var page14 = __webpack_require__(16);
+module.exports.page24 = function () {
+   $("#toPage24").on("click", function () {
+      $("#pages > p").hide();
+      $("#btns > button").hide();
+      $("#page24").show();
+      $("#toPage14").show();
+      page14.page14();
+   });
+};
+
+/***/ }),
+/* 16 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var page23 = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./page23.js\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+var page28 = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./page28.js\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+module.exports.page14 = function () {
+
+   $("#toPage14").on("click", function () {
+      $("#pages > p").hide();
+      $("#btns > button").hide();
+      $("#page14").show();
+      $("#toPage23, #toPage28").show();
+      page23.page23();
+      page28.page28();
    });
 };
 

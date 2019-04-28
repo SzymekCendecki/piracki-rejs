@@ -1,4 +1,5 @@
 let page7 = require("./page7.js");
+let page12 = require("./page12.js");
 module.exports.page8 = function(){
    
     $("#toPage7").on("click", ()=>{
@@ -6,6 +7,6 @@ module.exports.page8 = function(){
      });
     
      $("#toPage12").on("click", ()=>{
-      console.log("kapitan");
+      page12.page12();
    });
 }
