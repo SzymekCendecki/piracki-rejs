@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 2);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -70,7 +70,27 @@
 "use strict";
 
 
-var page8 = __webpack_require__(1);
+var page7 = __webpack_require__(8);
+var page12 = __webpack_require__(10);
+module.exports.page8 = function () {
+
+  $("#toPage7").on("click", function () {
+    page7.page7();
+  });
+
+  $("#toPage12").on("click", function () {
+    page12.page12();
+  });
+};
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var page8 = __webpack_require__(0);
 
 module.exports.start = function () {
     $("#start").on("click", function () {
@@ -101,44 +121,53 @@ module.exports.start = function () {
 };
 
 /***/ }),
-/* 1 */
+/* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var page7 = __webpack_require__(7);
-var page12 = __webpack_require__(9);
-module.exports.page8 = function () {
+var page4 = __webpack_require__(12);
+var page15 = __webpack_require__(13);
+module.exports.page20 = function () {
 
-  $("#toPage7").on("click", function () {
-    page7.page7();
-  });
-
-  $("#toPage12").on("click", function () {
-    page12.page12();
-  });
+   $.ajax({
+      url: 'https://szymekcendecki.github.io/piracki-rejs/jsonFiles/texts.json',
+      type: 'GET',
+      dataType: 'json'
+   }).done(function (data) {
+      $("#toPage20").on("click", function () {
+         $("#pages > p").hide();
+         $("#btns > button").hide();
+         $("#page20").show().empty().append(data.game[0].page20);
+         $("#toPage4, #toPage15").show();
+         page4.page4();
+         page15.page15();
+      });
+   }).fail(function () {
+      console.log("coś nie bangla...");
+   });
 };
 
 /***/ }),
-/* 2 */
+/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(3);
+module.exports = __webpack_require__(4);
 
 
 /***/ }),
-/* 3 */
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 //import { equip } from "./game.js";
-var intro = __webpack_require__(4);
-var info = __webpack_require__(5);
-var rulez = __webpack_require__(6);
-var start = __webpack_require__(0);
+var intro = __webpack_require__(5);
+var info = __webpack_require__(6);
+var rulez = __webpack_require__(7);
+var start = __webpack_require__(1);
 
 document.addEventListener("DOMContentLoaded", function () {
 
@@ -152,7 +181,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 /***/ }),
-/* 4 */
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -172,7 +201,7 @@ module.exports.intro = function () {
 };
 
 /***/ }),
-/* 5 */
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -219,13 +248,13 @@ module.exports.info = function () {
 };
 
 /***/ }),
-/* 6 */
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var start = __webpack_require__(0);
+var start = __webpack_require__(1);
 
 module.exports.rulez = function () {
     $(".one").on("click", function () {
@@ -270,13 +299,13 @@ module.exports.rulez = function () {
 };
 
 /***/ }),
-/* 7 */
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var page1 = __webpack_require__(8);
+var page1 = __webpack_require__(9);
 module.exports.page7 = function () {
 
    $.ajax({
@@ -296,13 +325,13 @@ module.exports.page7 = function () {
 };
 
 /***/ }),
-/* 8 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var page8 = __webpack_require__(1);
+var page8 = __webpack_require__(0);
 module.exports.page1 = function () {
    $("#toPage1").on("click", function () {
       $("#pages > p").hide();
@@ -314,38 +343,28 @@ module.exports.page1 = function () {
 };
 
 /***/ }),
-/* 9 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var page11 = __webpack_require__(10);
-module.exports.page12 = function () {
-   $("#toPage12").on("click", function () {
-      $("#pages > p").hide();
-      $("#btns > button").hide();
-      $("#page12").show();
-      $("#toPage11").show();
-      page11.page11();
-   });
-};
-
-/***/ }),
 /* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var page20 = __webpack_require__(11);
-module.exports.page11 = function () {
-   $("#toPage11").on("click", function () {
-      $("#pages > p").hide();
-      $("#btns > button").hide();
-      $("#page11").show();
-      $("#toPage20").show();
-      page20.page20();
+var page11 = __webpack_require__(11);
+module.exports.page12 = function () {
+   $.ajax({
+      url: 'https://szymekcendecki.github.io/piracki-rejs/jsonFiles/texts.json',
+      type: 'GET',
+      dataType: 'json'
+   }).done(function (data) {
+      $("#toPage12").on("click", function () {
+         $("#pages > p").hide();
+         $("#btns > button").hide();
+         $("#page12").show().empty().append(data.game[0].page12);
+         $("#toPage11").show();
+         page11.page11();
+      });
+   }).fail(function () {
+      console.log("coś nie bangla...");
    });
 };
 
@@ -356,17 +375,22 @@ module.exports.page11 = function () {
 "use strict";
 
 
-var page4 = __webpack_require__(13);
-var page15 = __webpack_require__(12);
-module.exports.page20 = function () {
-
-   $("#toPage20").on("click", function () {
-      $("#pages > p").hide();
-      $("#btns > button").hide();
-      $("#page20").show();
-      $("#toPage4, #toPage15").show();
-      page4.page4();
-      page15.page15();
+var page20 = __webpack_require__(2);
+module.exports.page11 = function () {
+   $.ajax({
+      url: 'https://szymekcendecki.github.io/piracki-rejs/jsonFiles/texts.json',
+      type: 'GET',
+      dataType: 'json'
+   }).done(function (data) {
+      $("#toPage11").on("click", function () {
+         $("#pages > p").hide();
+         $("#btns > button").hide();
+         $("#page11").show().empty().append(data.game[0].page11);
+         $("#toPage20").show();
+         page20.page20();
+      });
+   }).fail(function () {
+      console.log("coś nie bangla...");
    });
 };
 
@@ -377,17 +401,23 @@ module.exports.page20 = function () {
 "use strict";
 
 
-var page33 = __webpack_require__(14);
-var page24 = __webpack_require__(15);
-module.exports.page15 = function () {
+var page14 = __webpack_require__(0);
+module.exports.page4 = function () {
+   $("#toPage4").on("click", function () {
 
-   $("#toPage15").on("click", function () {
-      $("#pages > p").hide();
-      $("#btns > button").hide();
-      $("#page15").show();
-      $("#toPage33, #toPage24").show();
-      page33.page33();
-      page24.page24();
+      $.ajax({
+         url: 'https://szymekcendecki.github.io/piracki-rejs/jsonFiles/texts.json',
+         type: 'GET',
+         dataType: 'json'
+      }).done(function (data) {
+         $("#pages > p").hide();
+         $("#btns > button").hide();
+         $("#page4").show().empty().append(data.game[0].page4);
+         $("#toPage14").show();
+         page14.page14();
+      }).fail(function () {
+         console.log("coś nie bangla...");
+      });
    });
 };
 
@@ -398,14 +428,25 @@ module.exports.page15 = function () {
 "use strict";
 
 
-var page14 = __webpack_require__(1);
-module.exports.page4 = function () {
-   $("#toPage4").on("click", function () {
-      $("#pages > p").hide();
-      $("#btns > button").hide();
-      $("#page4").show();
-      $("#toPage14").show();
-      page14.page14();
+var page33 = __webpack_require__(14);
+var page24 = __webpack_require__(15);
+module.exports.page15 = function () {
+
+   $.ajax({
+      url: 'https://szymekcendecki.github.io/piracki-rejs/jsonFiles/texts.json',
+      type: 'GET',
+      dataType: 'json'
+   }).done(function (data) {
+      $("#toPage15").on("click", function () {
+         $("#pages > p").hide();
+         $("#btns > button").hide();
+         $("#page15").show().empty().append(data.game[0].page15);
+         $("#toPage33, #toPage24").show();
+         page33.page33();
+         page24.page24();
+      });
+   }).fail(function () {
+      console.log("coś nie bangla...");
    });
 };
 
@@ -416,14 +457,23 @@ module.exports.page4 = function () {
 "use strict";
 
 
-var page20 = __webpack_require__(11);
+var page20 = __webpack_require__(2);
 module.exports.page33 = function () {
-   $("#toPage33").on("click", function () {
-      $("#pages > p").hide();
-      $("#btns > button").hide();
-      $("#page33").show();
-      $("#toPage20").show();
-      page20.page20();
+
+   $.ajax({
+      url: 'https://szymekcendecki.github.io/piracki-rejs/jsonFiles/texts.json',
+      type: 'GET',
+      dataType: 'json'
+   }).done(function (data) {
+      $("#toPage33").on("click", function () {
+         $("#pages > p").hide();
+         $("#btns > button").hide();
+         $("#page33").show().empty().append(data.game[0].page33);
+         $("#toPage20").show();
+         page20.page20();
+      });
+   }).fail(function () {
+      console.log("coś nie bangla...");
    });
 };
 
@@ -436,12 +486,21 @@ module.exports.page33 = function () {
 
 var page14 = __webpack_require__(16);
 module.exports.page24 = function () {
-   $("#toPage24").on("click", function () {
-      $("#pages > p").hide();
-      $("#btns > button").hide();
-      $("#page24").show();
-      $("#toPage14").show();
-      page14.page14();
+
+   $.ajax({
+      url: 'https://szymekcendecki.github.io/piracki-rejs/jsonFiles/texts.json',
+      type: 'GET',
+      dataType: 'json'
+   }).done(function (data) {
+      $("#toPage24").on("click", function () {
+         $("#pages > p").hide();
+         $("#btns > button").hide();
+         $("#page24").show().empty().append(data.game[0].page24);
+         $("#toPage14").show();
+         page14.page14();
+      });
+   }).fail(function () {
+      console.log("coś nie bangla...");
    });
 };
 
@@ -452,17 +511,81 @@ module.exports.page24 = function () {
 "use strict";
 
 
-var page23 = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./page23.js\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
-var page28 = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./page28.js\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+var page23 = __webpack_require__(17);
+var page28 = __webpack_require__(18);
 module.exports.page14 = function () {
 
-   $("#toPage14").on("click", function () {
-      $("#pages > p").hide();
-      $("#btns > button").hide();
-      $("#page14").show();
-      $("#toPage23, #toPage28").show();
-      page23.page23();
-      page28.page28();
+   $.ajax({
+      url: 'https://szymekcendecki.github.io/piracki-rejs/jsonFiles/texts.json',
+      type: 'GET',
+      dataType: 'json'
+   }).done(function (data) {
+      $("#toPage14").on("click", function () {
+         $("#pages > p").hide();
+         $("#btns > button").hide();
+         $("#page14").show().empty().append(data.game[0].page14);
+         $("#toPage23, #toPage28").show();
+         page23.page23();
+         page28.page28();
+      });
+   }).fail(function () {
+      console.log("coś nie bangla...");
+   });
+};
+
+/***/ }),
+/* 17 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+//let page50 = require("./page50.js");
+module.exports.page23 = function () {
+
+   $.ajax({
+      url: 'https://szymekcendecki.github.io/piracki-rejs/jsonFiles/texts.json',
+      type: 'GET',
+      dataType: 'json'
+   }).done(function (data) {
+      $("#toPage23").on("click", function () {
+         $("#pages > p").hide();
+         $("#btns > button").hide();
+         $("#page23").show().empty().append(data.game[0].page23);
+         $("#toPage50").show();
+         //  page50.page50();
+      });
+   }).fail(function () {
+      console.log("coś nie bangla...");
+   });
+};
+
+/***/ }),
+/* 18 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+//let page50 = require("./page50.js");
+//let page36 = require("./page36.js");
+module.exports.page28 = function () {
+
+   $.ajax({
+      url: 'https://szymekcendecki.github.io/piracki-rejs/jsonFiles/texts.json',
+      type: 'GET',
+      dataType: 'json'
+   }).done(function (data) {
+      $("#toPage28").on("click", function () {
+         $("#pages > p").hide();
+         $("#btns > button").hide();
+         $("#page28").show().empty().append(data.game[0].page28);
+         $("#toPage50, #toPage36").show();
+         page50.page50();
+         page36.page36();
+      });
+   }).fail(function () {
+      console.log("coś nie bangla...");
    });
 };
 
