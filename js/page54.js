@@ -1,17 +1,17 @@
-let page50 = require("./page50.js");
-module.exports.page32= function(){
+let page20 = require("./page96.js");
+module.exports.page54= function(){
 
    $.ajax({
       url: 'https://szymekcendecki.github.io/piracki-rejs/jsonFiles/texts.json',
       type: 'GET',
       dataType: 'json'
   }).done((data)=>{
-   $("#toPage32").on("click", ()=>{
+   $("#toPage54").on("click", ()=>{
       $("#pages > p").hide();
       $("#btns > button").hide();
-      $("#page32").show().empty().append(data.game[0].page32);
-      $("#toPage50").show();
-      page50.page50();
+      $("#page54").show().empty().append(data.game[0].page54);
+      $("#toPage20").show();
+      page20.page20();
    });
 }).fail(()=>{ console.log("coś nie bangla..."); });
 

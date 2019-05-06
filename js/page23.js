@@ -1,4 +1,4 @@
-//let page50 = require("./page50.js");
+let page50 = require("./page50.js");
 module.exports.page23= function(){
 
    $.ajax({
@@ -11,7 +11,7 @@ module.exports.page23= function(){
       $("#btns > button").hide();
       $("#page23").show().empty().append(data.game[0].page23);
       $("#toPage50").show();
-      //  page50.page50();
+      page50.page50();
    });
 }).fail(()=>{ console.log("coś nie bangla..."); });
 
