@@ -47,7 +47,7 @@ Po zakończeniu działania w terminalu uruchomić:
 Otworzyć drugi raz terminal oraz uruchomić: 
 # node_modules/.bin/webpack 
 
-Pamiętaj, że uruchomienie termianla z gulp watch oraz node_modules/.bin/webpack powinno być w katalogu z projektem. W tym przypadku w katalogu pirackiRFejs.
+Pamiętaj, że uruchomienie termianla z gulp watch oraz node_modules/.bin/webpack powinno być w katalogu z projektem. W tym przypadku w katalogu pirackiRejs.
 
 Teraz wystarczy otworzyć odpowiedni program umożliwiający pisanie kodu oraz rozpocząć pracę.
 
